@@ -11,10 +11,11 @@ module.exports = (req, res, next) => {
   }
 
   try {
-    jwt.verify(token, process.env.JWT_SECRET || "your-secret-key");
+    jwt.verify(token, process.env.JWT_SECRET || "keep it secret, keep it safe");
 
     next();
   } catch (err) {
+    console.log("error in restricted middleware", err);
     res.status(401).json({
       message: "Invalid token",
     });
