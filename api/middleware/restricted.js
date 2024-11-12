@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
 
   if (!token) {
     res.status(401).json({
-      message: "token required",
+      message: "Token required",
     });
     return;
   }
@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
     next();
   } catch (err) {
     res.status(401).json({
-      message: "token invalid",
+      message: "Invalid token",
     });
   }
 };
